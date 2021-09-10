@@ -3,16 +3,16 @@ package com.ac.p1;
 import java.util.Arrays;
 
 /**
- * 冒泡排序
+ * 简单排序：冒泡排序
  */
 public class Code02_BubbleSort {
     public static void bubbleSort(int arr[]) {
         if (arr == null || arr.length < 2)
             return;
 /*
-        for (int i = 0; i < arr.length - 1; i++) {
+        for (int i = 0; i < arr.length; i++) {
             boolean flag = false;   //判断某一次是否发生交换，如果没有交换则结束排序
-            for (int j = 0; j < arr.length - i - 1; j++) {
+            for (int j = 0; j < arr.length - i; j++) {
                 if (arr[j] > arr[j + 1]) {
                     swap(arr, j, j + 1);
                     flag = true;
@@ -43,9 +43,16 @@ public class Code02_BubbleSort {
         arr[j] = tmp;
     }
 
+    //异或运算的交换
+    public static void swap_(int arr[], int i, int j) {
+        arr[i] = arr[i] ^ arr[j];
+        arr[j] = arr[i] ^ arr[j];
+        arr[i] = arr[i] ^ arr[j];
+    }
+
     //测试代码
     public static void main(String[] args) {
-        int[] arr = {2, 3, 6, 0, 2, 1, 0, 32, 2, 1, 999};
+        int[] arr = {2, 3, 6, 0, 2, 1, 0, 32, 2, 1, 999,1};
         System.out.println(Arrays.toString(arr));
         bubbleSort(arr);
         System.out.println(Arrays.toString(arr));
